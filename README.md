@@ -23,3 +23,10 @@ Feed URLs into [stdin](https://en.wikipedia.org/wiki/Standard_streams#Standard_i
 ```bash
 echo "https://orsinium.dev/" | ./sourcemap --output=./sources
 ```
+
+## Docker
+
+```bash
+docker build -t sourcemap:latest .
+echo "https://www.example.com" | docker run -v $(PWD)/sources:/sources -i --rm sourcemap:latest
+``` 

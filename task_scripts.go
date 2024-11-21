@@ -58,6 +58,10 @@ func (task *TaskScripts) Run(surl *url.URL) error {
 			return fmt.Errorf("read response body: %v", err)
 		}
 	}
+	// guess the sourcemap location
+	if murl == "" {
+		murl = surl.String() + ".map"
+	}
 
 	if murl != "" {
 		murl, err := surl.Parse(murl)
